@@ -1,7 +1,5 @@
-import { sonarClient } from "../../components/sonar";
+import { sonarClient } from "@/components/sonar";
 import { NextResponse } from "next/server";
-
-// const prompt = "Generate details for cancer stage-3";
 
 export async function POST(req: Request) {
   const { prompt } = await req.json();
@@ -11,8 +9,9 @@ export async function POST(req: Request) {
     messages: [
       {
         role: "system",
-        content: `You are a JSON generator and you always generate a clean JSON nothing else. You have to generate stuffs related to biotech and biotech related finance. 
-        You have to follow exact this JSON template: {
+        content: `You are a JSON generator and you have to always generate a clean JSON without comments and make sure you don't use any charachter that can't be parsed into JSON. 
+        You have to generate stuffs related to biotech and biotech related finance. 
+        You have to follow exact this JSON template without comments: {
   "name": "Cancer Vaccine",               // string common name or code
   "indication": "Solid tumors",           // string disease/condition targeted
   "platform": "mRNA",                     // string tech (mRNA, viral‑vector, etc.)
