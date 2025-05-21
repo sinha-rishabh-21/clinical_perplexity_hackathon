@@ -1,5 +1,7 @@
 import { sonarClient } from "@/components/sonar";
 import { NextResponse } from "next/server";
+// import { writeFileSync } from "node:fs";
+// import path from "node:path";
 
 export async function POST(req: Request) {
   const { prompt } = await req.json();
@@ -9,7 +11,8 @@ export async function POST(req: Request) {
     messages: [
       {
         role: "system",
-        content: `You are a JSON generator and you have to always generate a clean JSON without comments and make sure you don't use any charachter that can't be parsed into JSON. 
+        content: `You are a JSON generator and you have to always generate a clean JSON without comments and make sure you don't use any charachter that can't be parsed into JSON.
+        Use Web search to get most recent data and don't fill any field with "N/A" or "null" make sure everything is correctly filled accourding to the templete. 
         You have to generate stuffs related to biotech and biotech related finance. 
         You have to follow exact this JSON template without comments: {
   "name": "Cancer Vaccine",               // string common name or code
@@ -83,5 +86,8 @@ export async function POST(req: Request) {
     ],
   });
 
+  // const filePath = path.join(process.cwd(), "data.txt");
+  // writeFileSync(filePath, completion.choices[0].message.content ?? "", "utf-8");
+  // console.log(completion.choices[0].message.content);
   return NextResponse.json({ text: completion.choices[0].message.content });
 }

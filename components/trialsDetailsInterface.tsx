@@ -4,7 +4,7 @@ export interface TrialDetails {
   platform: string;
 
   trial: {
-    phase: 1 | 2 | 3 | 4;
+    phase: number;
     identifier: string;
     status: "Recruiting" | "Active" | "Completed" | "Terminated" | string;
     start_date: string; // ISO 8601 date (YYYY‑MM‑DD)

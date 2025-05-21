@@ -37,7 +37,7 @@ const Body = () => {
       </div>
       {/*second section*/}
       <div className="h-[80vh] bg-transparent flex items-center justify-center px-6">
-        <div className="min-h-[60vh] w-full max-w-7xl bg-gray-100 rounded-3xl shadow-xl flex flex-col-reverse md:flex-row overflow-hidden">
+        <div className="min-h-[60vh] w-full max-w-7xl bg-gray-100 rounded-3xl flex flex-col-reverse md:flex-row overflow-hidden">
           {/* Text Section */}
           <div className="w-full md:w-1/2 p-10 flex flex-col justify-center">
             <h2 className="text-3xl md:text-4xl font-bold text-primarytext mb-6">
