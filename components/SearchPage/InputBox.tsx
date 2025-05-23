@@ -1,0 +1,46 @@
+interface InputBoxProps {
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
+  onSend: () => void;
+  loading: boolean; // ⬅️ add loading prop
+}
+
+const InputBox = ({
+  searchTerm,
+  setSearchTerm,
+  onSend,
+  loading,
+}: InputBoxProps) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && !loading) {
+      onSend();
+    }
+  };
+
+  return (
+    <div className="flex items-center gap-4">
+      <input
+        type="text"
+        placeholder={loading ? "Searching..." : "Ask me something..."}
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        onKeyDown={handleKeyDown}
+        disabled={loading}
+        className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:opacity-60"
+      />
+      <button
+        onClick={onSend}
+        disabled={loading}
+        className={`px-5 py-3 rounded-xl transition text-white ${
+          loading
+            ? "bg-blue-400 cursor-not-allowed"
+            : "bg-blue-600 hover:bg-blue-700"
+        }`}
+      >
+        {loading ? "Sending..." : "Send"}
+      </button>
+    </div>
+  );
+};
+
+export default InputBox;
