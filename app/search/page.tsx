@@ -75,17 +75,28 @@ const SearchPage = () => {
     }
   };
   return (
-    <div className="pt-[10vh] h-[90vh] flex flex-col justify-between bg-white">
-      <div className="flex-1 overflow-y-auto px-6 md:px-12">
-        <MessageList messages={messages} />
+    <div
+      className="min-h-screen bg-cover bg-center bg-no-repeat relative"
+      style={{
+        backgroundImage: "url('/hero_bg_blurred.png')",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      {/* Input Box with Glassmorphism */}
+      <div className="absolute top-[15vh] left-1/2 -translate-x-1/2 w-full max-w-3xl px-4">
+        <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-lg p-4">
+          <InputBox
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            onSend={sendMessage}
+            loading={loading}
+          />
+        </div>
       </div>
-
-      <div className="border-t px-6 md:px-12 py-4 bg-white shadow-md">
-        <InputBox
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          onSend={sendMessage}
-          loading={loading} // ⬅️ pass loading state
+      {/* ⬇️ Results below search box */}
+      <div className="pt-[30vh] pb-16 px-6 md:px-12">
+        <MessageList
+          messages={messages.filter((msg) => msg.type === "response")} // ❌ no user messages
         />
       </div>
     </div>
