@@ -9,6 +9,7 @@ import {
   XAxis,
   YAxis,
   LabelList,
+  LabelProps,
 } from "recharts";
 import {
   Card,
@@ -51,6 +52,44 @@ const distinctColors = [
   "#e17055", // coral
   "#0984e3", // light blue
 ];
+
+const CustomLabel = ({
+  x = 0,
+  y = 0,
+  width = 0,
+  height = 0,
+  value,
+}: LabelProps) => {
+  const numericX = Number(x);
+  const numericY = Number(y);
+  const numericWidth = Number(width);
+  const numericHeight = Number(height);
+
+  const lineHeight = 14;
+  const text = String(value);
+  const words = text.length > 15 ? text.match(/.{1,15}/g) || [] : [text];
+  const totalHeight = words.length * lineHeight;
+
+  return (
+    <text
+      x={numericX + numericWidth + 5}
+      y={numericY + numericHeight / 2 - totalHeight / 2 + lineHeight / 2}
+      fill="#000"
+      textAnchor="start"
+      dominantBaseline="middle"
+    >
+      {words.map((line, i) => (
+        <tspan
+          x={numericX + numericWidth + 5}
+          dy={i === 0 ? 0 : lineHeight}
+          key={i}
+        >
+          {line}
+        </tspan>
+      ))}
+    </text>
+  );
+};
 
 export function TimelineChartComponent({
   title,
@@ -104,8 +143,7 @@ export function TimelineChartComponent({
                 >
                   <LabelList
                     dataKey={barKeys[1] as string}
-                    position="right"
-                    fill="#000"
+                    content={<CustomLabel />}
                   />
                   {data.map((_, index) => (
                     <Cell

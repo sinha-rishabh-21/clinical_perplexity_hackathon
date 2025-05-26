@@ -7,17 +7,17 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-zinc-50 shadow-sm px-4 sm:px-6 lg:px-12 py-4">
+    <nav className="bg-zinc-50 shadow-sm px-4 sm:px-6 lg:px-12 py-4 font-manrope">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
-        <div className="text-xl font-semibold text-gray-800">
+        <div className="text-xl font-bold text-gray-800">
           <Link href="/" className="hover:text-indigo-700 transition-colors">
             Biotech Insights
           </Link>
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden sm:flex space-x-12 text-gray-700 font-medium">
+        <ul className="hidden sm:flex space-x-12 text-gray-700 font-bold">
           <li>
             <Link href="/" className="hover:text-indigo-700 transition-colors">
               Home
