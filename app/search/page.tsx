@@ -18,19 +18,24 @@ const SearchPage = () => {
     setSearchTerm("");
 
     try {
-      const response = await axios.post("/api/getData", {
+      const response = await axios.post("/api/getSearchResults", {
         prompt: searchTerm.trim(),
       });
-      console.log("Response from API:", response.data);
+      //console.log("Response from API:", response.data);
 
       // 💡 Wrap response in an array if it's not already
       const parsed =
         typeof response.data.text === "string"
           ? JSON.parse(response.data.text)
           : response.data;
-      console.log("Parsed response:", parsed);
-
-      const trials = Array.isArray(parsed) ? parsed : [parsed];
+      //console.log("Parsed response:", parsed);
+      // console.log(
+      //   Array.isArray(parsed.text)
+      //     ? "Response is an array"
+      //     : "Response is not an array"
+      // );
+      //const trials = Array.isArray(parsed) ? parsed : [parsed];
+      const trials = parsed.text; // Use .text if available, otherwise use parsed directly
       console.log("Trials:", trials);
       setMessages((prev) => [...prev, { type: "response", data: trials }]);
     } catch (error) {
@@ -104,57 +109,6 @@ const SearchPage = () => {
 };
 
 export default SearchPage;
-
-// import Fuse from "fuse.js";
-// import { useState, useEffect } from "react";
-// import { Input } from "@/components/ui/input";
-// import { diseasesList } from "@/components/diseaseList";
-// const options = {
-//   includeScore: true,
-// };
-
-// const SearchPage = () => {
-//   const [searchTerm, setSearchTerm] = useState<string>("");
-//   const [searchResults, setSearchResults] = useState<string[]>([]);
-
-//   useEffect(() => {
-//     const fuse = new Fuse(diseasesList, options);
-//     const results = fuse.search(searchTerm);
-//     setSearchResults(results.slice(0, 7).map((result) => result.item));
-//     console.log(results);
-//   }, [searchTerm]);
-
-//   return (
-//     <div className="flex flex-col gap-4 items-center justify-center bg-gray-100 h-screen">
-//       <div className="fixed top-10 w-full max-w-2xl px-4">
-//         <Input
-//           type="search"
-//           placeholder="Search"
-//           value={searchTerm}
-//           onChange={(e) => setSearchTerm(e.target.value)}
-//           className="w-full"
-//         />
-//       </div>
-
-//       <div className="mt-32 w-full max-w-2xl px-4">
-//         {searchResults.length == 0 ? (
-//           <div className="bg-white p-4 m-2 rounded shadow">
-//             <p>
-//               Continue typing if its not in the suggestions but you know its a
-//               disease :)
-//             </p>
-//           </div>
-//         ) : (
-//           searchResults.map((item, index) => (
-//             <div key={index} className="bg-white p-4 m-2 rounded shadow">
-//               <p>{item}</p>
-//             </div>
-//           ))
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
 
 // this is the search page workflow
 // User types query
