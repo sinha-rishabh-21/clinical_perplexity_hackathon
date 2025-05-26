@@ -1,5 +1,6 @@
 import ResultCard from "./ResultCard";
 import { Message } from "@/types";
+import ResultCard2 from "./ResultCard2";
 
 interface MessageListProps {
   messages: Message[];
@@ -26,12 +27,7 @@ const MessageList = ({ messages }: MessageListProps) => {
                   trial?.trial?.identifier ? (
                     <ResultCard key={tidx} data={trial} />
                   ) : (
-                    <div
-                      key={tidx}
-                      className="text-sm text-red-600 border p-2 rounded bg-red-50"
-                    >
-                      ⚠️ Invalid trial data: {JSON.stringify(trial)}
-                    </div>
+                    <ResultCard2 key={tidx} data={trial} />
                   )
                 )
               ) : (
