@@ -82,7 +82,7 @@ const SearchPage = () => {
   };
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat relative"
+      className="min-h-screen bg-cover bg-center bg-no-repeat relative font-inter"
       style={{
         backgroundImage: "url('/hero_bg_blurred.png')",
         backgroundAttachment: "fixed",

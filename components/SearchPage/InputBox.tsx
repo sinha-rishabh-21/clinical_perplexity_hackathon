@@ -1,3 +1,5 @@
+import { LoaderCircle } from "lucide-react";
+
 interface InputBoxProps {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
@@ -39,7 +41,14 @@ const InputBox = ({
             : "bg-blue-600 hover:bg-blue-700"
         }`}
       >
-        {loading ? "Sending..." : "Send"}
+        {loading ? (
+          <div className="flex items-center justify-center">
+            <LoaderCircle className="animate-spin" />
+            <span className="ml-2">Searching...</span>
+          </div>
+        ) : (
+          "Search"
+        )}
       </button>
       <button
         onClick={clearMessages}
