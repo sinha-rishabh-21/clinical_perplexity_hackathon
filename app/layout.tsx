@@ -3,6 +3,7 @@ import { Poppins, Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import "./hero-bg.css";
 import NavBar from "@/components/HomePage/NavBar";
+import { MessagesProvider } from "@/context";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -38,12 +39,14 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${inter.variable} ${manrope.variable} antialiased`}
       >
-        <div className="relative">
-          <div className="absolute w-full z-10">
-            <NavBar />
+        <MessagesProvider>
+          <div className="relative">
+            <div className="absolute w-full z-10">
+              <NavBar />
+            </div>
+            {children}
           </div>
-          {children}
-        </div>
+        </MessagesProvider>
       </body>
     </html>
   );

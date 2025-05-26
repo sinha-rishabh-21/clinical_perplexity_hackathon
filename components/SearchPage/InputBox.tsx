@@ -2,7 +2,8 @@ interface InputBoxProps {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
   onSend: () => void;
-  loading: boolean; // ⬅️ add loading prop
+  loading: boolean;
+  clearMessages: () => void; // ⬅️ add loading prop
 }
 
 const InputBox = ({
@@ -10,6 +11,7 @@ const InputBox = ({
   setSearchTerm,
   onSend,
   loading,
+  clearMessages,
 }: InputBoxProps) => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !loading) {
@@ -38,6 +40,13 @@ const InputBox = ({
         }`}
       >
         {loading ? "Sending..." : "Send"}
+      </button>
+      <button
+        onClick={clearMessages}
+        disabled={loading}
+        className="px-4 py-3 rounded-xl transition text-white bg-red-500 hover:bg-red-600 disabled:opacity-50"
+      >
+        Clear
       </button>
     </div>
   );
