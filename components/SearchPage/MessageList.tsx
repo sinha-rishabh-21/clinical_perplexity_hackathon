@@ -1,4 +1,3 @@
-import ResultCard from "./ResultCard";
 import { Message } from "@/types";
 import ResultCard2 from "./ResultCard2";
 
@@ -25,7 +24,7 @@ const MessageList = ({ messages }: MessageListProps) => {
               {Array.isArray(msg.data) ? (
                 msg.data.map((trial, tidx) =>
                   trial?.trial?.identifier ? (
-                    <ResultCard key={tidx} data={trial} />
+                    <ResultCard2 key={tidx} data={trial} />
                   ) : (
                     <ResultCard2 key={tidx} data={trial} />
                   )

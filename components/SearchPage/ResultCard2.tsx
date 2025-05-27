@@ -1,32 +1,7 @@
 import Link from "next/link";
+import { Trial } from "@/types";
 
-interface TrialData {
-  name?: string;
-  indication?: string;
-  platform?: string;
-  tags?: string[];
-  trial?: {
-    phase?: number;
-    status?: string;
-    identifier?: string;
-    participants_enrolled?: number;
-    latest_update?: string;
-  };
-  science_highlights?: {
-    date?: string;
-    summary?: string;
-  }[];
-  investments?: {
-    lead_sponsor?: string;
-    total_money_over_last_10_years_usd?: number[];
-  };
-  market_outlook?: {
-    estimated_peak_sales_usd?: number;
-    expected_launch_year?: number;
-  };
-}
-
-const ResultCard2 = ({ data }: { data: TrialData }) => {
+const ResultCard2 = ({ data }: { data: Trial }) => {
   const latestHighlight = data.science_highlights?.[0];
 
   return (

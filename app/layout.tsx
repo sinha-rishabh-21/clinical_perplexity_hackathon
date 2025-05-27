@@ -5,6 +5,7 @@ import "./hero-bg.css";
 import NavBar from "@/components/HomePage/NavBar";
 import { MessagesProvider } from "@/context";
 import ProgressBar from "@/components/ProgressBar";
+import { Suspense } from "react";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -46,7 +47,9 @@ export default function RootLayout({
               <NavBar />
             </div>
             <main className="flex-grow">
-              <ProgressBar />
+              <Suspense fallback={<p>Loading...</p>}>
+                <ProgressBar />
+              </Suspense>
               {children}
             </main>
           </div>
@@ -55,3 +58,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+//fallback added in to complete build , check if it works fine or not
