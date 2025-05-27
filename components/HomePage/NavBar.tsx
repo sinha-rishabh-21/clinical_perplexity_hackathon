@@ -12,7 +12,7 @@ const NavBar = () => {
         {/* Logo */}
         <div className="text-xl font-bold text-gray-800">
           <Link href="/" className="hover:text-indigo-700 transition-colors">
-            Biotech Insights
+            TrialSight
           </Link>
         </div>
 

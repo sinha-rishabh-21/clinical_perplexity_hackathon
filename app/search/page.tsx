@@ -3,18 +3,19 @@ import React, { useState } from "react";
 import MessageList from "@/components/SearchPage/MessageList";
 import InputBox from "@/components/SearchPage/InputBox";
 import axios from "axios";
-//import { Message } from "@/types";
-import { useMessages } from "@/context";
+import { Message } from "@/types";
+//import { useMessages } from "@/context";
 
 const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const { messages, setMessages, clearMessages } = useMessages();
+  const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState<boolean>(false); // ⬅️ loading flag
 
   const sendMessage = async () => {
     if (!searchTerm.trim() || loading) return;
 
     setLoading(true);
+    setMessages([]);
     setMessages((prev) => [...prev, { type: "user", text: searchTerm.trim() }]);
     setSearchTerm("");
 
@@ -95,8 +96,7 @@ const SearchPage = () => {
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
             onSend={sendMessage}
-            loading={loading}
-            clearMessages={clearMessages} // ⬅️ pass clearMessages function
+            loading={loading} // ⬅️ pass clearMessages function
           />
         </div>
       </div>

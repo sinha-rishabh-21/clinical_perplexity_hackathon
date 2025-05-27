@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Body = () => {
   return (
@@ -102,9 +103,12 @@ const Body = () => {
             Start exploring clinical trials with real-time AI insights—
             <span className="font-semibold text-black">no sign-up needed</span>.
           </p>
-          <button className="mt-4 px-8 py-3 bg-indigo-500 text-white font-semibold text-lg rounded-full shadow-md hover:bg-indigo-700 transition duration-300">
+          <Link
+            href="/search"
+            className="mt-4 px-8 py-3 bg-indigo-500 text-white font-semibold text-lg rounded-full shadow-md hover:bg-indigo-700 transition duration-300"
+          >
             Try It Out
-          </button>
+          </Link>
         </div>
       </div>
     </div>
