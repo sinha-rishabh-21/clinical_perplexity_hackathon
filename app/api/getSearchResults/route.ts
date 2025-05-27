@@ -38,11 +38,11 @@ Generate structured data for clinical trials of vaccines or biotech therapeutics
    - Generate a list of **all** known, ongoing, or completed biotech products or vaccines targeting it.
    - The ongoing trials should be prioritized, but include all relevant products.
    - **Cap the list at a maximum of 6 entries.** Stop generating once 6 results are complete. Always return the list decreasing in order of sales and relevance(more famous and widely common first).
-   - **Return an empty list** if no such disease or relevant products are found in trusted sources.
+   - Never return an empty list, even if no products are found.
 
 2. **If the user prompt provides the actual name of a vaccine or biotech product** (e.g., "Comirnaty", "mRNA-1273", "Gardasil"):
    - Generate a **singleton list** (an array with exactly one item) with that product’s trial and market data.
-   - **Return an empty list** if the product name is not known or found in any trusted sources.
+   - **Return an empty list** if the product name is not known or found in any trusted sources.(last resort don't think for this until you have exhausted all other options)
 
 ### RULES
 1. Return an array of objects that match this exact schema (no omissions, no additions, no comments):
@@ -89,6 +89,7 @@ export async function POST(req: Request) {
   try {
     const response = await sonarClient.chat.completions.create({
       model: "sonar-pro",
+      temperature: 0.1,
       messages: [
         {
           role: "system",

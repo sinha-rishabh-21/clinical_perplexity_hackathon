@@ -12,6 +12,7 @@ import GraphArea from "@/components/DetailsPage/graphArea";
 import SummaryArea from "@/components/DetailsPage/summaryArea";
 import LoaderComponent from "@/components/loaderComponent";
 import { redirect, useParams } from "next/navigation";
+import { LoaderCircle } from "lucide-react";
 
 const fetchData = async ({
   prompt,
@@ -93,7 +94,7 @@ const DetailsPage = () => {
 
     return (
       <div className="min-h-screen bg-zinc-200 font-inter p-10 pt-36 ">
-        {trialData === null || marketData === null ? (
+        {trialData === null ? (
           <LoaderComponent />
         ) : (
           <>
@@ -118,13 +119,19 @@ const DetailsPage = () => {
                         >
                           Vaccine Details
                         </TabsTrigger>
-                        <TabsTrigger
-                          className="cursor-pointer font-manrope font-bold"
-                          value="market"
-                          onClick={() => setIsMarket(true)}
-                        >
-                          Market Outlook
-                        </TabsTrigger>
+                        {marketData === null ? (
+                          <TabsTrigger className="" value="market" disabled>
+                            <LoaderCircle className="animate-spin" />
+                          </TabsTrigger>
+                        ) : (
+                          <TabsTrigger
+                            className="cursor-pointer font-manrope font-bold"
+                            value="market"
+                            onClick={() => setIsMarket(true)}
+                          >
+                            Market Outlook
+                          </TabsTrigger>
+                        )}
                       </TabsList>
                     </Tabs>
                   </div>

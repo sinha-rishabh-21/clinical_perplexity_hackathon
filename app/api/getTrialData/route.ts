@@ -118,6 +118,7 @@ export async function POST(req: Request) {
 
   const completion = await sonarClient.chat.completions.create({
     model: "sonar-pro",
+    temperature: 0.1,
     messages: [
       {
         role: "system",
