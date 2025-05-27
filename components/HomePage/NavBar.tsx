@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react"; // hamburger and close icons
@@ -10,11 +11,13 @@ const NavBar = () => {
     <nav className="bg-zinc-50 shadow-sm px-4 sm:px-6 lg:px-12 py-4 font-manrope">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
-        <div className="text-xl font-bold text-gray-800">
-          <Link href="/" className="hover:text-indigo-700 transition-colors">
-            TrialSight
-          </Link>
-        </div>
+        <Link href="/" className="hover:text-indigo-700 transition-colors">
+          <div className=" flex items-end gap-1 text-xl font-bold text-gray-800">
+            <Image src="/blue-logo.png" alt="Logo" width={30} height={30} />
+
+            <div>TrialSights</div>
+          </div>
+        </Link>
 
         {/* Desktop Menu */}
         <ul className="hidden sm:flex space-x-12 text-gray-700 font-bold">

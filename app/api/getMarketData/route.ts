@@ -108,6 +108,7 @@ Generate structured data for clinical trials of vaccines or biotech therapeutics
   - Regulatory bodies: FDA, EMA, CDC, WHO
   - Investor materials: 10-K/10-Q filings, earnings reports, company investor decks
   - News outlets: STAT News, Endpoints News, Fierce Biotech, Reuters Health
+  - Most Important: Use the latest data available (try to include data until current year). 
 
 5. Be extremely careful with:
   - Dates (must be in ISO format)

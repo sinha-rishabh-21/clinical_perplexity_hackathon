@@ -37,7 +37,7 @@ Generate structured data for clinical trials of vaccines or biotech therapeutics
 1. **If the user prompt provides a disease or condition name** (e.g., "RSV", "cervical cancer", "COVID-19"):
    - Generate a list of **all** known, ongoing, or completed biotech products or vaccines targeting it.
    - The ongoing trials should be prioritized, but include all relevant products.
-   - **Cap the list at a maximum of 6 entries.** Stop generating once 6 results are complete.
+   - **Cap the list at a maximum of 6 entries.** Stop generating once 6 results are complete. Always return the list decreasing in order of sales and relevance(more famous and widely common first).
    - **Return an empty list** if no such disease or relevant products are found in trusted sources.
 
 2. **If the user prompt provides the actual name of a vaccine or biotech product** (e.g., "Comirnaty", "mRNA-1273", "Gardasil"):

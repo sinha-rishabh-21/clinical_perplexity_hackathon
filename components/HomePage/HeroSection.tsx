@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { Button } from "../ui/button";
+import Link from "next/link";
 // import NavBar from "./NavBar";
 const PrimaryText = "#792B34";
 const HeroSection = () => {
@@ -30,6 +32,11 @@ const HeroSection = () => {
               Real-time insights. Data-driven decisions. Smarter biotech
               investing—powered by AI.
             </p>
+            <Link href="/search">
+              <Button className="bg-[#27aff2] font-semibold font-inter hover:bg-[#1a8acb] transition-colors cursor-pointer">
+                Try Now
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
