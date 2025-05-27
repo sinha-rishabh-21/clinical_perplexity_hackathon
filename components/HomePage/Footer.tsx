@@ -19,15 +19,15 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-3">Resources</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/chat" className="hover:underline">
+                <a href="/search" className="hover:underline">
                   Explore Trials
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#" className="hover:underline">
                   How It Works
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -39,11 +39,11 @@ const Footer = () => {
                   About Us
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#" className="hover:underline">
                   Contact
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

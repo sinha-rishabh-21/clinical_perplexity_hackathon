@@ -87,9 +87,7 @@ const Body = () => {
             No more digging through dense medical jargon. Instantly access
             structured protocol data, key dates, endpoints, and enrollment
             stats—plus AI-powered summaries that help you grasp a trial’s
-            essence in seconds.h{" "}
-            <span className="font-semibold text-black">ClinicalTrials.gov</span>{" "}
-            and <span className="font-semibold text-black">PubMed</span>.
+            essence in seconds.{" "}
           </p>
         </div>
       </div>
