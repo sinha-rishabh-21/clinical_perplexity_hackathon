@@ -82,7 +82,7 @@ Generate structured data for clinical trials of vaccines or biotech therapeutics
 1. Follow **this exact JSON schema** (no omissions, no additions, no comments): ${trialSchema}
 
 2. The JSON must be:
-  - Fully parseable with a standard JSON parser
+  - Fully parseable with a standard JSON parser (very strict)
   - Free of comments, trailing commas, extra keys, or unescaped characters
   - Always return a valid and exactly structured JSON object as the schema defines
 
