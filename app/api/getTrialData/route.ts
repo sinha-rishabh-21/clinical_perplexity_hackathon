@@ -82,7 +82,7 @@ Generate structured data for clinical trials of vaccines or biotech therapeutics
 1. Follow **this exact JSON schema** (no omissions, no additions, no comments): ${trialSchema}
 
 2. The JSON must be:
-  - Fully parseable with a standard JSON parser
+  - Fully parseable with a standard JSON parser (very strict)
   - Free of comments, trailing commas, extra keys, or unescaped characters
   - Always return a valid and exactly structured JSON object as the schema defines
 
@@ -97,6 +97,7 @@ Generate structured data for clinical trials of vaccines or biotech therapeutics
   - Regulatory bodies: FDA, EMA, CDC, WHO
   - Investor materials: 10-K/10-Q filings, earnings reports, company investor decks
   - News outlets: STAT News, Endpoints News, Fierce Biotech, Reuters Health
+  - Most Important: Use the latest data available (try to include data until current year).
 
 5. Be extremely careful with:
   - Dates (must be in ISO format)
@@ -117,6 +118,7 @@ export async function POST(req: Request) {
 
   const completion = await sonarClient.chat.completions.create({
     model: "sonar-pro",
+    temperature: 0.1,
     messages: [
       {
         role: "system",

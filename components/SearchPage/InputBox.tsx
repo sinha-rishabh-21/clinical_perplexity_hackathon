@@ -33,7 +33,7 @@ const InputBox = ({
       <button
         onClick={onSend}
         disabled={loading}
-        className={`px-5 py-3 rounded-xl transition text-white ${
+        className={`px-5 py-3 rounded-xl transition text-white cursor-pointer ${
           loading
             ? "bg-blue-400 cursor-not-allowed"
             : "bg-blue-600 hover:bg-blue-700"

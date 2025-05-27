@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "../ui/button";
 
 const Body = () => {
   return (
@@ -101,11 +102,10 @@ const Body = () => {
             Start exploring clinical trials with real-time AI insights—
             <span className="font-semibold text-black">no sign-up needed</span>.
           </p>
-          <Link
-            href="/search"
-            className="mt-4 px-8 py-3 bg-indigo-500 text-white font-semibold text-lg rounded-full shadow-md hover:bg-indigo-700 transition duration-300"
-          >
-            Try It Out
+          <Link href="/search">
+            <Button className="bg-[#27aff2] font-semibold font-inter hover:bg-[#1a8acb] transition-colors cursor-pointer">
+              Try Now
+            </Button>
           </Link>
         </div>
       </div>
