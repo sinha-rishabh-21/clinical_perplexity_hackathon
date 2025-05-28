@@ -27,10 +27,9 @@ TrialSights addresses these challenges through the following functionalities:
 
 ## Technology Stack
 
-* **Frontend:** React.js, styled with Tailwind CSS
-* **Backend:** Node.js with the Express.js framework
+* **Frontend:** Next.js with tailwindcss
+* **Backend:** Next.js
 * **AI Integration:** Perplexity AI Sonar API
-* **Data Storage:** MongoDB
 
 ## Perplexity Sonar API Integration
 
